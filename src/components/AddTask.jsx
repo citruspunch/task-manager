@@ -27,17 +27,20 @@ export default function AddTask({ onAdd, categories }) {
         </Col>
         <Col xs={4}>
           <Form.Group controlId="formCategory">
-            <Form.Control as="select" onChange={(e) => setCategory(e.target.value)}>
+            <Form.Control
+              as="select"
+              onChange={(e) => setCategory(e.target.value)}
+            >
               {categories.map((category) => (
-                    <option key={category} value={category}>
-                        {category}
-                    </option>
-                ))}
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
             </Form.Control>
           </Form.Group>
         </Col>
       </Row>
-      <Button className="mt-3" variant="primary" type="submit">
+      <Button className="mt-3 custom-add-task-button" variant="primary" type="submit">
         Add Task
       </Button>
     </Form>
