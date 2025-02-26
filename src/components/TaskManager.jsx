@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import AddTask from "./AddTask";
 import TaskList from "./TaskList";
 import CategoryFilter from "./CategoryFilter";
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card } from "react-bootstrap";
+import "../styles/TaskManager.css";
+
+const CATEGORIES = ["General", "Work", "Personal"];
 
 export default function TaskManager() {
   const [tasks, setTasks] = useState([]);
@@ -30,7 +33,7 @@ export default function TaskManager() {
     : tasks;
 
   return (
-    <Container> 
+    <Container>
       <Row className="justify-content-md-center">
         <Col md="auto">
           <h1>Task Manager</h1>
@@ -40,9 +43,9 @@ export default function TaskManager() {
         <Col>
           <Card>
             <Card.Body>
-              <AddTask onAdd={handleAddTask} categories={["General", "Work", "Personal"]} />
+              <AddTask onAdd={handleAddTask} categories={CATEGORIES} />
               <CategoryFilter
-                categories={["General", "Work", "Personal"]}
+                categories={CATEGORIES}
                 onFilter={handleFilterChange}
               />
               <TaskList tasks={filteredTasks} onDelete={handleDeleteTask} />
@@ -51,6 +54,5 @@ export default function TaskManager() {
         </Col>
       </Row>
     </Container>
-    
   );
 }
