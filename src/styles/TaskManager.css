@@ -27,7 +27,29 @@ h1 {
 
 button {
   border-radius: 10px !important;
+  transition: background-color 0.3s, transform 0.2s;
 }
+
+button:hover {
+  background-color: #052c38d6 !important;
+}
+
+.edit-task-input {
+  background-color: #fffafa !important;
+  color: #000000 !important;
+  border: 1px solid #ffffff !important;
+  border-radius: 5px;
+  padding-right: 5px !important;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.edit-task-input:focus {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important; 
+  outline: none !important;
+}
+
 
 .list-group-item {
   display: flex;
