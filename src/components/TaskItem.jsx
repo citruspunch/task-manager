@@ -8,7 +8,7 @@ export default function TaskItem({ task, onDelete, onEdit }) {
   const [newTaskName, setNewTaskName] = useState(task.name);
 
   const handleSave = () => {
-    onEdit(task.id, newTaskName);
+    if (newTaskName !== "") onEdit(task.id, newTaskName);
     setIsEditing(false);
   };
 
