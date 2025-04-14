@@ -28,6 +28,14 @@ export default function TaskManager() {
     setFilter(category);
   };
 
+  const handleEditTask = (taskId, newTaskName) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === taskId ? { ...task, name: newTaskName } : task
+      )
+    );
+  }
+
   const filteredTasks = filter
     ? tasks.filter((task) => task.category === filter)
     : tasks;
@@ -48,7 +56,7 @@ export default function TaskManager() {
                 categories={CATEGORIES}
                 onFilter={handleFilterChange}
               />
-              <TaskList tasks={filteredTasks} onDelete={handleDeleteTask} />
+              <TaskList tasks={filteredTasks} onDelete={handleDeleteTask} onEdit={handleEditTask}/>
             </Card.Body>
           </Card>
         </Col>
